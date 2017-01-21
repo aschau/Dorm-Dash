@@ -8,6 +8,7 @@ public class timer : MonoBehaviour {
 	public float _currentTime; //Current Time
 	private string textTime; //Getting the time
 	public Text textTimer; //The string time
+	public bool paused = false;
 
 
 	// Use this for initialization
@@ -18,12 +19,14 @@ public class timer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (!paused) {
 		if (_currentTime >= 0) {
 			_currentTime -= Time.deltaTime;
 			textTimer.text = parsingTime (_currentTime);
 		} else {
 			textTimer.text = parsingTime (0f);
 		}
+	}
 	}
 
 	public string parsingTime(float time)
