@@ -6,6 +6,9 @@ public class ramen : foodItem {
     public override void Start()
     {
         base.Start();
-        base.stock = 5;
+        base.stock = 6;
+        base.time = 3;
+        base.space = 1;
+        base.name = "cupNoodle";
     }
 }
