@@ -26,9 +26,15 @@ public class moneyControl : MonoBehaviour {
 	void Update () {
 	}
 
+    public void addAmount(float amount)
+    {
+        Debug.Log("ADDED");
+        this.total += amount;
+        totalAmount();
+    }
+
 	public void totalAmount()
 	{
-		total = 100;
 		totalMoney.text = "$"+ total.ToString ("0.00");
 	}
 }

@@ -9,17 +9,17 @@ public abstract class foodItem : MonoBehaviour {
     public int time = 0;
     public int space = 0;
     public float price = 0.0f;
-    public string name = "";
+    public string itemName = "";
     public int occupied = 0;
     //public float trashcanX1, trashcanX2, trashcanY1, trashcanY2;
 
-    public GameObject control, mainCamera;
     public Sprite cooked, overCooked;
     public bool cookedWell = false;
     private float offsetX, offsetY;
     
     public Vector3 origin;
-    private GameObject trashcan;
+    private GameObject trashcan, mainCamera, control;
+    private moneyControl moneyControl;
 
     public virtual void Awake()
     {
@@ -27,6 +27,7 @@ public abstract class foodItem : MonoBehaviour {
 
         this.mainCamera = GameObject.Find("Main Camera");
         this.control = GameObject.Find("microwaveControl");
+        this.moneyControl = GameObject.Find("Money Control").GetComponent<moneyControl>();
         //this.trashcanX1 = this.trashcan.transform.position.x - (this.trashcan.GetComponent<RectTransform>().rect.width / 2);
         //this.trashcanX2 = this.trashcan.transform.position.x + (this.trashcan.GetComponent<RectTransform>().rect.width / 2);
         //this.trashcanY1 = this.trashcan.transform.position.y - (this.trashcan.GetComponent<RectTransform>().rect.height / 2);
@@ -116,7 +117,30 @@ public abstract class foodItem : MonoBehaviour {
 
             if (hit.transform.CompareTag("customerBubble"))
             {
+                if (cookedWell)
+                {
+                    if (this.itemName == hit.transform.GetComponent<CustomerBubbles>().food_type)
+                    {
+                        Debug.Log("CUP NOODLES");
+                        moneyControl.addAmount(2f);
+                    }
+                    else if (this.itemName == "hotPocket")
+                    {
+                        moneyControl.addAmount(4f);
+                    }
 
+                    else if (this.itemName == "popcorn")
+                    {
+                        moneyControl.addAmount(2.5f);
+                    }
+
+                    else if (this.itemName == "tvDinner")
+                    {
+                        moneyControl.addAmount(7f);
+                    }
+                }
+
+                hit.transform.GetComponent<CustomerBubbles>().setItem();
             }
 
             Destroy(this.gameObject);

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class anchorInit : MonoBehaviour {
-    private RectTransform sidebar, microwave, items, pushButton, startButton, timer;
+    private RectTransform sidebar, microwave, items, pushButton, startButton, timer, closedMicrowave;
 	
     void Awake()
     {
         this.sidebar = GameObject.Find("Right Sidebar").GetComponent<RectTransform>();
         this.microwave = GameObject.Find("Microwave").GetComponent<RectTransform>();
-        this.items = GameObject.Find("Items").GetComponent<RectTransform>();
+        this.closedMicrowave = GameObject.Find("closedMicrowave").GetComponent<RectTransform>();
+        this.items = GameObject.Find("Buttons").GetComponent<RectTransform>();
         this.pushButton = GameObject.Find("Push Button").GetComponent<RectTransform>();
         this.startButton = GameObject.Find("Start Button").GetComponent<RectTransform>();
         this.timer = GameObject.Find("Timer").GetComponent<RectTransform>();
@@ -22,6 +23,10 @@ public class anchorInit : MonoBehaviour {
         this.sidebar.offsetMax = Vector2.zero;
         this.sidebar.offsetMin = Vector2.zero;
 
+        this.closedMicrowave.anchorMin = new Vector2(0f, 0f);
+        this.closedMicrowave.anchorMax = new Vector2(1f, 1f);
+        this.closedMicrowave.offsetMax = Vector2.zero;
+        this.closedMicrowave.offsetMin = Vector2.zero;
         //RectTransform orderRT = this.sidebar.GetChild(0).GetComponent<RectTransform>();
         //orderRT.anchorMin = new Vector2(.2f, 0.775f);
         //orderRT.anchorMax = new Vector2(.8f, 0.975f);
