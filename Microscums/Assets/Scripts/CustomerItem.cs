@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CustomerItem : MonoBehaviour {
 
+    private CustomerBubbles bubble;
+    public GameObject food_item;
+
 	// Use this for initialization
 	void Start () {
 		
