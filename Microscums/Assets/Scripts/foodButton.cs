@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class foodButton : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class foodButton : MonoBehaviour
     GameObject item, space1, space2, space3, space12, space23, control;
     public static bool hotPocketButton, popcornButton, tvDinnerButton, ramenButton;
     public GameObject create, parent;
+    private GameObject[] itemStocks;
+
     public void Awake()
     {
        // itemName = this.name + "Button";
@@ -18,6 +21,8 @@ public class foodButton : MonoBehaviour
         space23 = GameObject.Find("SecondThird Space");
         parent = GameObject.Find("Items");
         control = GameObject.Find("microwaveControl");
+        itemStocks = GameObject.FindGameObjectsWithTag("itemStock");
+
     }
     public void Start()
     {
@@ -38,6 +43,14 @@ public class foodButton : MonoBehaviour
                 if (control.GetComponent<microControl>().space1 == false)
                 {
                     RestockManager.ramen -= 1; //decrease stock
+                    foreach (GameObject item in this.itemStocks)
+                    {
+                        if (item.name == "Ramen")
+                        {
+                            Debug.Log("RAMEN DECREASE CHANGE");
+                            item.transform.FindChild("Stock").GetComponent<Text>().text = RestockManager.ramen.ToString();
+                        }
+                    }
                     ramenButton = true;
 
                     GameObject newObject = (GameObject)Instantiate(create, space1.transform.position, Quaternion.identity, parent.transform);
@@ -48,6 +61,13 @@ public class foodButton : MonoBehaviour
                 else if (control.GetComponent<microControl>().space2 == false)
                 {
                     RestockManager.ramen -= 1; //decrease stock
+                    foreach (GameObject item in this.itemStocks)
+                    {
+                        if (item.name == "Ramen")
+                        {
+                            item.transform.FindChild("Stock").GetComponent<Text>().text = RestockManager.ramen.ToString();
+                        }
+                    }
                     ramenButton = true;
 
                     GameObject newObject = (GameObject)Instantiate(create, space2.transform.position, Quaternion.identity, parent.transform);
@@ -58,6 +78,13 @@ public class foodButton : MonoBehaviour
                 else if (control.GetComponent<microControl>().space3 == false)
                 {
                     RestockManager.ramen -= 1; //decrease stock
+                    foreach (GameObject item in this.itemStocks)
+                    {
+                        if (item.name == "Ramen")
+                        {
+                            item.transform.FindChild("Stock").GetComponent<Text>().text = RestockManager.ramen.ToString();
+                        }
+                    }
                     ramenButton = true;
 
                     GameObject newObject = (GameObject)Instantiate(create, space3.transform.position, Quaternion.identity, parent.transform);
@@ -73,6 +100,13 @@ public class foodButton : MonoBehaviour
                     if (control.GetComponent<microControl>().space1 == false && control.GetComponent<microControl>().space2 == false)
                     {
                         RestockManager.popcorn -= 1; //decrease stock
+                        foreach (GameObject item in this.itemStocks)
+                        {
+                            if (item.name == "Popcorn")
+                            {
+                                item.transform.FindChild("Stock").GetComponent<Text>().text = RestockManager.popcorn.ToString();
+                            }
+                        }
                         popcornButton = true;
 
                         GameObject newObject = (GameObject)Instantiate(create, space12.transform.position, Quaternion.identity, parent.transform);
@@ -84,6 +118,13 @@ public class foodButton : MonoBehaviour
                     else if (control.GetComponent<microControl>().space2 == false && control.GetComponent<microControl>().space3 == false)
                     {
                         RestockManager.popcorn -= 1; //decrease stock
+                        foreach (GameObject item in this.itemStocks)
+                        {
+                            if (item.name == "Popcorn")
+                            {
+                                item.transform.FindChild("Stock").GetComponent<Text>().text = RestockManager.popcorn.ToString();
+                            }
+                        }
                         popcornButton = true;
 
                         GameObject newObject = (GameObject)Instantiate(create, space23.transform.position, Quaternion.identity, parent.transform);
@@ -98,6 +139,13 @@ public class foodButton : MonoBehaviour
                     if (control.GetComponent<microControl>().space1 == false && control.GetComponent<microControl>().space2 == false)
                     {
                         RestockManager.hotPocket -= 1; //decrease stock
+                        foreach (GameObject item in this.itemStocks)
+                        {
+                            if (item.name == "Hot Pocket")
+                            {
+                                item.transform.FindChild("Stock").GetComponent<Text>().text = RestockManager.hotPocket.ToString();
+                            }
+                        }
                         hotPocketButton = true;
 
                         GameObject newObject = (GameObject)Instantiate(create, space12.transform.position, Quaternion.identity, parent.transform);
@@ -109,6 +157,13 @@ public class foodButton : MonoBehaviour
                     else if (control.GetComponent<microControl>().space2 == false && control.GetComponent<microControl>().space3 == false)
                     {
                         RestockManager.hotPocket -= 1; //decrease stock
+                        foreach (GameObject item in this.itemStocks)
+                        {
+                            if (item.name == "Hot Pocket")
+                            {
+                                item.transform.FindChild("Stock").GetComponent<Text>().text = RestockManager.hotPocket.ToString();
+                            }
+                        }
                         hotPocketButton = true;
 
                         GameObject newObject = (GameObject)Instantiate(create, space23.transform.position, Quaternion.identity, parent.transform);
@@ -125,6 +180,13 @@ public class foodButton : MonoBehaviour
                 if (control.GetComponent<microControl>().spaces == 3)
                 {
                     RestockManager.tvDinner -= 1; //decrease stock
+                    foreach (GameObject item in this.itemStocks)
+                    {
+                        if (item.name == "TV Dinner")
+                        {
+                            item.transform.FindChild("Stock").GetComponent<Text>().text = RestockManager.tvDinner.ToString();
+                        }
+                    }
                     tvDinnerButton = true;
 
                     GameObject newObject = (GameObject)Instantiate(create, space2.transform.position, Quaternion.identity, parent.transform);

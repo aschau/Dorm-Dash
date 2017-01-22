@@ -10,6 +10,9 @@ public class RestockManager : MonoBehaviour {
     public static int ramen = 10;
     public static int popcorn = 5;
 
+    void Awake()
+    {
+    }
 	// Use this for initialization
 	void Start () {
         //START WITH MAX CAPACITY FOR ALL ITEMS
@@ -23,4 +26,6 @@ public class RestockManager : MonoBehaviour {
 	void Update () {
 		
 	}
+
+
 }
