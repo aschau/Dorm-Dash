@@ -5,10 +5,15 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class gameOver : MonoBehaviour {
+	public GameObject rootCanvas;
+
+	void Awake()
+	{
+		//DontDestroyOnLoad (this.gameObject);
+	}
 
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
@@ -23,4 +28,5 @@ public class gameOver : MonoBehaviour {
 	public void exitGame(){
 		SceneManager.LoadScene ("mainMenu");
 	}
+
 }
