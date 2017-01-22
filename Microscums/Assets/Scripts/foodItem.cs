@@ -72,8 +72,9 @@ public abstract class foodItem : MonoBehaviour {
     public virtual void endDrag()
     {
         this.beingDragged = false;
-        this.trashcan.GetComponent<trashCan>().downTrashCan();
         RaycastHit2D hit = checkHit(this.mainCamera);
+        this.trashcan.GetComponent<trashCan>().downTrashCan();
+
         if (hit)
         {
             if (this.occupied == 1)
@@ -111,7 +112,6 @@ public abstract class foodItem : MonoBehaviour {
                 this.control.GetComponent<microControl>().spaces += 3;
             }
             Destroy(this.gameObject);
-
         }
     //    if ((this.transform.position.x < this.trashcanX2) && (this.transform.position.x > this.trashcanX1))
     //    {
