@@ -56,13 +56,13 @@ public class anchorInit : MonoBehaviour {
         this.timer.offsetMax = Vector2.zero;
         this.timer.offsetMin = Vector2.zero;
 
-        this.pushButton.anchorMin = new Vector2(0.65f, 0.25f);
-        this.pushButton.anchorMax = new Vector2(0.98f, 0.39f);
+        this.pushButton.anchorMin = new Vector2(0.69f, 0.03f);
+        this.pushButton.anchorMax = new Vector2(0.99f, 0.23f);
         this.pushButton.offsetMax = Vector2.zero;
         this.pushButton.offsetMin = Vector2.zero;
 
-        this.startButton.anchorMin = new Vector2(0.65f, .072f);
-        this.startButton.anchorMax = new Vector2(0.98f, .205f);
+        this.startButton.anchorMin = new Vector2(0.69f, .24f);
+        this.startButton.anchorMax = new Vector2(0.99f, .46f);
         this.startButton.offsetMax = Vector2.zero;
         this.startButton.offsetMin = Vector2.zero;
 
