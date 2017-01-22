@@ -29,58 +29,62 @@ public class foodButton : MonoBehaviour
 
     public void onClick()
     {
-        if (this.name == "cupNoodlesButton")
+        if (control.GetComponent<microControl>().door == false)
         {
-            if (control.GetComponent<microControl>().space1 == false)
+            if (this.name == "cupNoodlesButton")
             {
-                GameObject newObject = (GameObject)Instantiate(create, space1.transform.position, Quaternion.identity, parent.transform);
-                newObject.gameObject.GetComponent<foodItem>().occupied = 1;
-                control.GetComponent<microControl>().spaces -= 1;
-                control.GetComponent<microControl>().space1 = true;
+                if (control.GetComponent<microControl>().space1 == false)
+                {
+                    GameObject newObject = (GameObject)Instantiate(create, space1.transform.position, Quaternion.identity, parent.transform);
+                    newObject.gameObject.GetComponent<foodItem>().occupied = 1;
+                    control.GetComponent<microControl>().spaces -= 1;
+                    control.GetComponent<microControl>().space1 = true;
+                }
+                else if (control.GetComponent<microControl>().space2 == false)
+                {
+                    GameObject newObject = (GameObject)Instantiate(create, space2.transform.position, Quaternion.identity, parent.transform);
+                    newObject.gameObject.GetComponent<foodItem>().occupied = 2;
+                    control.GetComponent<microControl>().spaces -= 1;
+                    control.GetComponent<microControl>().space2 = true;
+                }
+                else if (control.GetComponent<microControl>().space3 == false)
+                {
+                    GameObject newObject = (GameObject)Instantiate(create, space3.transform.position, Quaternion.identity, parent.transform);
+                    newObject.gameObject.GetComponent<foodItem>().occupied = 3;
+                    control.GetComponent<microControl>().spaces -= 1;
+                    control.GetComponent<microControl>().space3 = true;
+                }
             }
-            else if (control.GetComponent<microControl>().space2 == false)
+            else if (this.name == "popcornButton" || this.name == "hotPocketButton")
             {
-                GameObject newObject = (GameObject)Instantiate(create, space2.transform.position, Quaternion.identity, parent.transform);
-                newObject.gameObject.GetComponent<foodItem>().occupied = 2;
-                control.GetComponent<microControl>().spaces -= 1;
-                control.GetComponent<microControl>().space2 = true;
+                if (control.GetComponent<microControl>().space1 == false && control.GetComponent<microControl>().space2 == false)
+                {
+                    GameObject newObject = (GameObject)Instantiate(create, space12.transform.position, Quaternion.identity, parent.transform);
+                    newObject.gameObject.GetComponent<foodItem>().occupied = 12;
+                    control.GetComponent<microControl>().spaces -= 2;
+                    control.GetComponent<microControl>().space2 = true;
+                    control.GetComponent<microControl>().space1 = true;
+                }
+                else if (control.GetComponent<microControl>().space2 == false && control.GetComponent<microControl>().space3 == false)
+                {
+                    GameObject newObject = (GameObject)Instantiate(create, space23.transform.position, Quaternion.identity, parent.transform);
+                    newObject.gameObject.GetComponent<foodItem>().occupied = 23;
+                    control.GetComponent<microControl>().spaces -= 2;
+                    control.GetComponent<microControl>().space2 = true;
+                    control.GetComponent<microControl>().space3 = true;
+                }
             }
-            else if (control.GetComponent<microControl>().space3 == false)
+            else if (this.name == "tvDinnerButton")
             {
-                GameObject newObject = (GameObject)Instantiate(create, space3.transform.position, Quaternion.identity, parent.transform);
-                newObject.gameObject.GetComponent<foodItem>().occupied = 3;
-                control.GetComponent<microControl>().spaces -= 1;
-                control.GetComponent<microControl>().space3 = true;
-            }
-        }
-        else if (this.name == "popcornButton" || this.name == "hotPocketButton")
-        {
-            if (control.GetComponent<microControl>().space1 == false && control.GetComponent<microControl>().space2 == false) {
-                GameObject newObject = (GameObject)Instantiate(create, space12.transform.position, Quaternion.identity, parent.transform);
-                newObject.gameObject.GetComponent<foodItem>().occupied = 12;
-                control.GetComponent<microControl>().spaces -= 2;
-                control.GetComponent<microControl>().space2 = true;
-                control.GetComponent<microControl>().space1 = true;
-            }
-            else if (control.GetComponent<microControl>().space2 == false && control.GetComponent<microControl>().space3 == false)
-            {
-                GameObject newObject = (GameObject)Instantiate(create, space23.transform.position, Quaternion.identity, parent.transform);
-                newObject.gameObject.GetComponent<foodItem>().occupied = 23;
-                control.GetComponent<microControl>().spaces -= 2;
-                control.GetComponent<microControl>().space2 = true;
-                control.GetComponent<microControl>().space3 = true;
-            }
-        }
-        else if (this.name == "tvDinnerButton")
-        {
-            if (control.GetComponent<microControl>().spaces == 3)
-            {
-                GameObject newObject = (GameObject)Instantiate(create, space2.transform.position, Quaternion.identity, parent.transform);
-                newObject.gameObject.GetComponent<foodItem>().occupied = 123;
-                control.GetComponent<microControl>().spaces = 0;
-                control.GetComponent<microControl>().space1 = true;
-                control.GetComponent<microControl>().space2 = true;
-                control.GetComponent<microControl>().space3 = true;
+                if (control.GetComponent<microControl>().spaces == 3)
+                {
+                    GameObject newObject = (GameObject)Instantiate(create, space2.transform.position, Quaternion.identity, parent.transform);
+                    newObject.gameObject.GetComponent<foodItem>().occupied = 123;
+                    control.GetComponent<microControl>().spaces = 0;
+                    control.GetComponent<microControl>().space1 = true;
+                    control.GetComponent<microControl>().space2 = true;
+                    control.GetComponent<microControl>().space3 = true;
+                }
             }
         }
 
