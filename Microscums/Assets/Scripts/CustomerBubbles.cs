@@ -15,7 +15,7 @@ public class CustomerBubbles : MonoBehaviour {
 
         keepTrack = 0;
         parent = GameObject.Find(this.gameObject.name);
-        orders = FindObjectOfType<Orders>();
+        orders = GetComponent<Orders>();
     }
 
     // Update is called once per frame
