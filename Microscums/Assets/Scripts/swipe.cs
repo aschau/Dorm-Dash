@@ -12,7 +12,7 @@ public class swipe : MonoBehaviour
     void Awake()
     {
         score = GameObject.Find("microwaveControl");
-        timerIcon = GameObject.Find("Timer");
+        timerIcon = GameObject.Find("Swiper");
         timeIcon = GameObject.Find("Time");
     }
     // Use this for initialization
@@ -49,7 +49,7 @@ public class swipe : MonoBehaviour
     {
         if (held == true)
         {
-            if ((originalPosition.x) < Input.mousePosition.x)
+            if ((originalPosition.x) < Input.mousePosition.x || (originalPosition.x > Input.mousePosition.x))
             {
                 held = false;
                 score.GetComponent<microControl>().swipes += 1;

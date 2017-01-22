@@ -9,7 +9,7 @@ public class startButton : MonoBehaviour {
     void Awake()
     {
         closed = GameObject.Find("closedMicrowave");
-        opened = GameObject.Find("openMicrowave");
+        //opened = GameObject.Find("openMicrowave");
         control = GameObject.Find("microwaveControl");
         food = GameObject.Find("Items");
     }
@@ -25,17 +25,17 @@ public class startButton : MonoBehaviour {
 
     public void onClick()
     {
-        if (this.name == "startButton")
+        if (this.name == "Start Button")
         {
             closed.SetActive(true);
-            opened.SetActive(false);
+            //opened.SetActive(false);
             control.GetComponent<microControl>().door = true;
         }
         else
         {
 
             closed.SetActive(false);
-            opened.SetActive(true);
+            //opened.SetActive(true);
             control.GetComponent<microControl>().door = false;
             if (food.transform.childCount > 0)
             {
@@ -47,4 +47,5 @@ public class startButton : MonoBehaviour {
             control.GetComponent<microControl>().swipes = 0;
         }
     }
+
 }
