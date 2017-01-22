@@ -13,7 +13,4 @@ public class popcorn : foodItem {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
 }

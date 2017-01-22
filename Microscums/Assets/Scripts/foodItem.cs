@@ -42,9 +42,9 @@ public abstract class foodItem : MonoBehaviour {
         this.beingDragged = false;
     }
 
-    public virtual void OnCollisionEnter2D(Collider2D obj)
+    public virtual void OnCollisionEnter2D(Collision2D obj)
     {
-        if (obj.name == "trashcan" || obj.name == "customer")
+        if (obj.transform.name == "trashcan" || obj.transform.name == "customer")
         {
             Destroy(gameObject);
         }

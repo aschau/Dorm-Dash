@@ -13,7 +13,4 @@ public class tvDinner : foodItem{
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
 }
