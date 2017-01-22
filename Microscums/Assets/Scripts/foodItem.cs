@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public abstract class foodItem : MonoBehaviour {
     public bool beingDragged = false;
-    public int stock = 0;
 
     private float offsetX, offsetY;
     private Vector3 origin;
