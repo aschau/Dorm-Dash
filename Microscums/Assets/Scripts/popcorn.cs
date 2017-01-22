@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ramen : foodItem {
-    public override void Start()
-    {
+public class popcorn : foodItem {
+
+	// Use this for initialization
+	public override void Start(){
         base.Start();
-        base.stock = 6;
+        base.space = 2;
         base.time = 3;
-        base.space = 1;
-        base.name = "cupNoodle";
-    }
+        base.name = "popcorn";
+        //base.occupied = 0;
+	}
+
     /*public override void endDrag()
     {
         this.beingDragged = false;
@@ -18,20 +20,17 @@ public class ramen : foodItem {
         {
             if ((this.transform.position.y < this.trashcanY2) && (this.transform.position.y > this.trashcanY1))
             {
-                if (this.occupied == 1)
+                if (this.occupied == 12)
                 {
                     control.GetComponent<microControl>().space1 = false;
-                    control.GetComponent<microControl>().spaces += 1;
+                    control.GetComponent<microControl>().space2 = false;
+                    control.GetComponent<microControl>().spaces += 2;
                 }
-                else if (this.occupied == 2)
+                else if (this.occupied == 23)
                 {
                     control.GetComponent<microControl>().space2 = false;
-                    control.GetComponent<microControl>().spaces += 1;
-                }
-                else if (this.occupied == 3)
-                {
                     control.GetComponent<microControl>().space3 = false;
-                    control.GetComponent<microControl>().spaces += 1;
+                    control.GetComponent<microControl>().spaces += 2;
                 }
                 Destroy(this.gameObject);
             }
@@ -40,5 +39,7 @@ public class ramen : foodItem {
         {
             this.transform.position = origin;
         }
-    }*/
+    }
+	
+	// Update is called once per frame*/
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class timer : MonoBehaviour {
 	public float maxTime = 240f; //Max Time for Game
@@ -24,8 +25,9 @@ public class timer : MonoBehaviour {
 			_currentTime -= Time.deltaTime;
 			textTimer.text = parsingTime (_currentTime);
 		} else {
-			textTimer.text = parsingTime (0f);
+			SceneManager.LoadScene ("gameOver");
 		}
+		
 	}
 	}
 
