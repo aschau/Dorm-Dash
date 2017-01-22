@@ -12,7 +12,9 @@ public abstract class foodItem : MonoBehaviour {
     public string name = "";
     public int occupied = 0;
     public float trashcanX1, trashcanX2, trashcanY1, trashcanY2;
+
     public GameObject control, mainCamera;
+    public Sprite cooked, overCooked;
 
     private float offsetX, offsetY;
     
@@ -22,6 +24,7 @@ public abstract class foodItem : MonoBehaviour {
     public virtual void Awake()
     {
         this.trashcan = GameObject.Find("trashcan");
+
         this.mainCamera = GameObject.Find("Main Camera");
         //this.control = GameObject.Find("microwaveControl");
         //this.trashcanX1 = this.trashcan.transform.position.x - (this.trashcan.GetComponent<RectTransform>().rect.width / 2);
@@ -40,7 +43,14 @@ public abstract class foodItem : MonoBehaviour {
 	
 	// Update is called once per frame
 	public virtual void Update () {
-		
+        if (this.time == 0)
+        {
+            this.GetComponent<Image>().sprite = cooked;
+        }
+        if (this.time < 0)
+        {
+            this.GetComponent<Image>().sprite = overCooked;
+        }
 	}
 
     public virtual void beginDrag()
@@ -61,9 +71,11 @@ public abstract class foodItem : MonoBehaviour {
     public virtual void endDrag()
     {
         this.beingDragged = false;
+
         RaycastHit2D hit = checkHit(this.mainCamera);
         if (hit)
         {
+           
             Destroy(this.gameObject);
         }
     //    if ((this.transform.position.x < this.trashcanX2) && (this.transform.position.x > this.trashcanX1))

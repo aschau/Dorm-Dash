@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class swipe : MonoBehaviour {
+public class swipe : MonoBehaviour
+{
     public bool held = false;
     Vector3 originalPosition;
     GameObject score;
-	// Use this for initialization
-	void Start () {
-        score = GameObject.Find("GameControl");
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    // Use this for initialization
+    void Start()
+    {
+        score = GameObject.Find("microwaveControl");
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     public void onPointerDown()
     {
@@ -26,10 +29,10 @@ public class swipe : MonoBehaviour {
     {
         if (held == true)
         {
-            if ((originalPosition.x)< Input.mousePosition.x)
+            if ((originalPosition.x) < Input.mousePosition.x)
             {
                 held = false;
-                score.GetComponent<gameControl>().score += 1;
+                score.GetComponent<microControl>().swipes += 1;
             }
             else
             {
