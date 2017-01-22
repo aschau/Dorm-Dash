@@ -12,12 +12,14 @@ public class restocking : MonoBehaviour {
 	private float popcorn =  1f;
 	private float hotPocket = 2f;
 	private float tvdinner = 5f;
+    private moneyControl mc;
 
 	// Use this for initialization
 	void Awake()
 	{
 		amount = this.transform.FindChild("Amount").GetComponent<Text>();
 		totAmount = GameObject.Find ("Total Amount").GetComponent<Text> ();
+        mc = GameObject.Find("Money Control").GetComponent<moneyControl>();
 	}
 
 	void Start () {
@@ -41,8 +43,61 @@ public class restocking : MonoBehaviour {
 	}
 	public void increaseItem()
 	{
-		amount.text = (itemAmount ()+1).ToString ();
-		totalAmount ();
+        if (this.name == "Popcorn")
+        {
+            totalAmount();
+            if (RestockManager.popcorn + int.Parse(amount.text) < RestockBars.popcorn_max)
+            {
+                if (total + popcorn < mc.total)
+                {
+                    amount.text = (itemAmount() + 1).ToString();
+                    totalAmount();
+                    parseTotal();
+                }
+            }
+        }
+
+        else if (this.name == "Ramen")
+        {
+            if (RestockManager.ramen + int.Parse(amount.text) < RestockBars.ramen_max)
+            {
+                if (total + ramen < mc.total)
+                {
+                    amount.text = (itemAmount() + 1).ToString();
+                    totalAmount();
+                    parseTotal();
+                }
+
+            }
+        }
+
+        else if (this.name == "TV Dinner")
+        {
+            if (RestockManager.tvDinner + int.Parse(amount.text) < RestockBars.tvDinner_max)
+            {
+                if (total + tvdinner < mc.total)
+                {
+                    amount.text = (itemAmount() + 1).ToString();
+                    totalAmount();
+                    parseTotal();
+                }
+
+            }
+        }
+
+        else if (this.name == "Hot Pocket")
+        {
+            if (RestockManager.hotPocket + int.Parse(amount.text) < RestockBars.hotPocket_max)
+            {
+                if (total + hotPocket < mc.total)
+                {
+                    amount.text = (itemAmount() + 1).ToString();
+                    totalAmount();
+                    parseTotal();
+                }
+
+            }
+        }
 
 	}
 	public void decreaseItem()
@@ -50,6 +105,7 @@ public class restocking : MonoBehaviour {
 		if (int.Parse(amount.text) > 0) {
 			amount.text = (itemAmount () - 1).ToString ();
 			totalAmount ();
+            parseTotal();
 		}
 	}
 	public void userAmount()
@@ -75,8 +131,12 @@ public class restocking : MonoBehaviour {
 		if (tvdinnerAmount > 0){
 			total += tvdinner * tvdinnerAmount; 
 		}
-
-		totAmount.text = "$"+ total.ToString ("0.00");
 	}
+
+    public void parseTotal()
+    {
+        totAmount.text = "$" + total.ToString("0.00");
+
+    }
 }
 

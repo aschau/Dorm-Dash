@@ -7,10 +7,10 @@ public class RestockBars : MonoBehaviour {
 
     public static float decreaseby = 0;
 
-    private int hotPocket_max = RestockManager.hotPocket;
-    private int popcorn_max = RestockManager.popcorn;
-    private int ramen_max = RestockManager.ramen;
-    private int tvDinner_max = RestockManager.tvDinner;
+    public static int hotPocket_max = RestockManager.hotPocket;
+    public static int popcorn_max = RestockManager.popcorn;
+    public static int ramen_max = RestockManager.ramen;
+    public static int tvDinner_max = RestockManager.tvDinner;
 
     // Use this for initialization
     void Start () {
