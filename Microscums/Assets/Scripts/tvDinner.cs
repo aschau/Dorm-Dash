@@ -10,6 +10,7 @@ public class tvDinner : foodItem{
         base.time = 7;
         base.space = 3;
         base.Start();
+        base.occupied = 0;
 	}
 	
 	// Update is called once per frame

@@ -10,6 +10,7 @@ public abstract class foodItem : MonoBehaviour {
     public int space = 0;
     public float price = 0.0f;
     public string name = "";
+    public int occupied = 0;
 
     private float offsetX, offsetY;
     private Vector3 origin;

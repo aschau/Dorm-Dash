@@ -10,7 +10,7 @@ public class hotPocket : foodItem {
         base.stock = 4;
         base.time = 2;
         base.space = 2;
-
+        base.occupied = 0;
     }
 
 

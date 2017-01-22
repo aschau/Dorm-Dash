@@ -10,5 +10,6 @@ public class ramen : foodItem {
         base.time = 3;
         base.space = 1;
         base.name = "cupNoodle";
+        base.occupied = 0;
     }
 }
