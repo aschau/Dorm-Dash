@@ -26,7 +26,7 @@ public abstract class foodItem : MonoBehaviour {
         this.trashcan = GameObject.Find("trashcan");
 
         this.mainCamera = GameObject.Find("Main Camera");
-        //this.control = GameObject.Find("microwaveControl");
+        this.control = GameObject.Find("microwaveControl");
         //this.trashcanX1 = this.trashcan.transform.position.x - (this.trashcan.GetComponent<RectTransform>().rect.width / 2);
         //this.trashcanX2 = this.trashcan.transform.position.x + (this.trashcan.GetComponent<RectTransform>().rect.width / 2);
         //this.trashcanY1 = this.trashcan.transform.position.y - (this.trashcan.GetComponent<RectTransform>().rect.height / 2);
@@ -75,55 +75,56 @@ public abstract class foodItem : MonoBehaviour {
         RaycastHit2D hit = checkHit(this.mainCamera);
         if (hit)
         {
-           
+            if (this.occupied == 1)
+            {
+                this.control.GetComponent<microControl>().space1 = false;
+                this.control.GetComponent<microControl>().spaces += 1;
+            }
+            else if (this.occupied == 2)
+            {
+                this.control.GetComponent<microControl>().space2 = false;
+                this.control.GetComponent<microControl>().spaces += 1;
+            }
+            else if (this.occupied == 3)
+            {
+                this.control.GetComponent<microControl>().space3 = false;
+                this.control.GetComponent<microControl>().spaces += 1;
+            }
+            else if (this.occupied == 12)
+            {
+                this.control.GetComponent<microControl>().space1 = false;
+                this.control.GetComponent<microControl>().space2 = false;
+                this.control.GetComponent<microControl>().spaces += 2;
+            }
+            else if (this.occupied == 23)
+            {
+                this.control.GetComponent<microControl>().space2 = false;
+                this.control.GetComponent<microControl>().space3 = false;
+                this.control.GetComponent<microControl>().spaces += 2;
+            }
+            else if (this.occupied == 123)
+            {
+                this.control.GetComponent<microControl>().space1 = false;
+                this.control.GetComponent<microControl>().space2 = false;
+                this.control.GetComponent<microControl>().space3 = false;
+                this.control.GetComponent<microControl>().spaces += 3;
+            }
             Destroy(this.gameObject);
+
         }
     //    if ((this.transform.position.x < this.trashcanX2) && (this.transform.position.x > this.trashcanX1))
     //    {
     //        if ((this.transform.position.y < this.trashcanY2) && (this.transform.position.y > this.trashcanY1))
     //        {
     //            Debug.Log(this.occupied);
-    //            if (this.occupied == 1)
-    //            {
-    //                this.control.GetComponent<microControl>().space1 = false;
-    //                this.control.GetComponent<microControl>().spaces += 1;
-    //            }
-    //            else if (this.occupied == 2)
-    //            {
-    //                this.control.GetComponent<microControl>().space2 = false;
-    //                this.control.GetComponent<microControl>().spaces += 1;
-    //            }
-    //            else if (this.occupied == 3)
-    //            {
-    //                this.control.GetComponent<microControl>().space3 = false;
-    //                this.control.GetComponent<microControl>().spaces += 1;
-    //            }
-    //            else if (this.occupied == 12)
-    //            {
-    //                this.control.GetComponent<microControl>().space1 = false;
-    //                this.control.GetComponent<microControl>().space2 = false;
-    //                this.control.GetComponent<microControl>().spaces += 2;
-    //            }
-    //            else if (this.occupied == 23)
-    //            {
-    //                this.control.GetComponent<microControl>().space2 = false;
-    //                this.control.GetComponent<microControl>().space3 = false;
-    //                this.control.GetComponent<microControl>().spaces += 2;
-    //            }
-    //            else if (this.occupied == 123)
-    //            {
-    //                this.control.GetComponent<microControl>().space1 = false;
-    //                this.control.GetComponent<microControl>().space2 = false;
-    //                this.control.GetComponent<microControl>().space3 = false;
-    //                this.control.GetComponent<microControl>().spaces += 3;
-    //            }
+
     //            Destroy(this.gameObject);
     //        }
     //    }
-    //    else
-    //    {
-    //        this.transform.position = origin;
-    //    }
+        else
+        {
+            this.transform.position = origin;
+        }
 
     }
 
