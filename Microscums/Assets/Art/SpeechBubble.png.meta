@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d86b5533f433c39419b5b11367ddfbc8
-timeCreated: 1485047814
+timeCreated: 1485061709
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -82,10 +82,10 @@ TextureImporter:
       name: SpeechBubble_0
       rect:
         serializedVersion: 2
-        x: 1480
-        y: 815
-        width: 381
-        height: 243
+        x: 1488
+        y: 808
+        width: 376
+        height: 252
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
