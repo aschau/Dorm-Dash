@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class microControl : MonoBehaviour {
     //true == there is something on that space
     //false == there is nothing on that space
-    private GameObject microwave;
+    private GameObject microwave, closedMicrowave;
     public Sprite open, closed;
     public bool door = true;
     public int swipes = 0;
@@ -18,6 +18,7 @@ public class microControl : MonoBehaviour {
     void Awake()
     {
         microwave = GameObject.Find("Microwave");
+        closedMicrowave = GameObject.Find("closedMicrowave");
         //opened = GameObject.Find("openMicrowave");
     }
 	// Use this for initialization
@@ -33,13 +34,15 @@ public class microControl : MonoBehaviour {
 
     public void pushButton()
     {
-        this.microwave.GetComponent<Image>().sprite = open;
+        //this.microwave.GetComponent<Image>().sprite = open;
+        this.closedMicrowave.gameObject.SetActive(false);
         door = false;
     }
 
     public void startButton()
     {
-        this.microwave.GetComponent<Image>().sprite = closed;
+        //this.microwave.GetComponent<Image>().sprite = closed;
+        this.closedMicrowave.gameObject.SetActive(true);
         door = true;
     }
 
