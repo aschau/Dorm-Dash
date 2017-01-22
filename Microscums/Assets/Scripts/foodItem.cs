@@ -11,7 +11,7 @@ public abstract class foodItem : MonoBehaviour {
     public float price = 0.0f;
     public string name = "";
     public int occupied = 0;
-    public float trashcanX1, trashcanX2, trashcanY1, trashcanY2;
+    //public float trashcanX1, trashcanX2, trashcanY1, trashcanY2;
 
     public GameObject control, mainCamera;
     public Sprite cooked, overCooked;
@@ -23,7 +23,7 @@ public abstract class foodItem : MonoBehaviour {
 
     public virtual void Awake()
     {
-        this.trashcan = GameObject.Find("trashcan");
+        this.trashcan = GameObject.Find("trashCan");
 
         this.mainCamera = GameObject.Find("Main Camera");
         this.control = GameObject.Find("microwaveControl");
@@ -58,6 +58,7 @@ public abstract class foodItem : MonoBehaviour {
         offsetX = this.transform.position.x - Input.mousePosition.x;
         offsetY = this.transform.position.y - Input.mousePosition.y;
         this.beingDragged = true;
+        this.trashcan.GetComponent<trashCan>().upTrashCan();
     }
 
     public virtual void onDrag()
@@ -71,7 +72,7 @@ public abstract class foodItem : MonoBehaviour {
     public virtual void endDrag()
     {
         this.beingDragged = false;
-
+        this.trashcan.GetComponent<trashCan>().downTrashCan();
         RaycastHit2D hit = checkHit(this.mainCamera);
         if (hit)
         {
