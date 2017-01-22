@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5cf6f54b8833fb64aa374003607f9e93
-timeCreated: 1485062018
+guid: 3c201f8900fb4d042b8c739eaf12e1e9
+timeCreated: 1485061760
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: TimerBar_0
+    21300000: PauseButton_0
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -79,13 +79,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TimerBar_0
+      name: PauseButton_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 942
-        width: 1420
-        height: 138
+        x: 164
+        y: 189
+        width: 244
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
