@@ -15,7 +15,7 @@ public abstract class foodItem : MonoBehaviour {
 
     public GameObject control, mainCamera;
     public Sprite cooked, overCooked;
-
+    public bool cookedWell = false;
     private float offsetX, offsetY;
     
     public Vector3 origin;
@@ -46,10 +46,12 @@ public abstract class foodItem : MonoBehaviour {
         if (this.time == 0)
         {
             this.GetComponent<Image>().sprite = cooked;
+            this.cookedWell = true;
         }
         if (this.time < 0)
         {
             this.GetComponent<Image>().sprite = overCooked;
+            this.cookedWell = false;
         }
 	}
 
@@ -111,17 +113,14 @@ public abstract class foodItem : MonoBehaviour {
                 this.control.GetComponent<microControl>().space3 = false;
                 this.control.GetComponent<microControl>().spaces += 3;
             }
+
+            if (hit.transform.CompareTag("customerBubble"))
+            {
+
+            }
+
             Destroy(this.gameObject);
         }
-    //    if ((this.transform.position.x < this.trashcanX2) && (this.transform.position.x > this.trashcanX1))
-    //    {
-    //        if ((this.transform.position.y < this.trashcanY2) && (this.transform.position.y > this.trashcanY1))
-    //        {
-    //            Debug.Log(this.occupied);
-
-    //            Destroy(this.gameObject);
-    //        }
-    //    }
         else
         {
             this.transform.position = origin;

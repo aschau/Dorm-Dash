@@ -12,7 +12,7 @@ public class swipe : MonoBehaviour
     void Awake()
     {
         score = GameObject.Find("microwaveControl");
-        timerIcon = GameObject.Find("Timer");
+        timerIcon = GameObject.Find("Swiper");
         timeIcon = GameObject.Find("Time");
     }
     // Use this for initialization

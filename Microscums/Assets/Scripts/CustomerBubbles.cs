@@ -20,11 +20,11 @@ public class CustomerBubbles : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        keepTrack -= Time.deltaTime;
-        if(keepTrack <= 0 && orders.item_index<12) //may need to change size (i.e. 12) for level
+        //keepTrack -= Time.deltaTime;
+        if(orders.item_index<12) //may need to change size (i.e. 12) for level
         {
             //print(orders.item_index);
-            keepTrack = timeDelay;
+            //keepTrack = timeDelay;
             string item = orders.order_list[orders.item_index]; //retrieve item from list
             orders.item_index++; //set index to grab next item in next loops
             //if (this.transform.GetChild(0).name != "SpeechBubble(Clone)"){
