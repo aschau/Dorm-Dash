@@ -11,6 +11,7 @@ public class hotPocket : foodItem {
         base.time = 2;
         base.space = 2;
         base.occupied = 0;
+        base.name = "hotPocket";
     }
 
 
