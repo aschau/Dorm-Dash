@@ -6,7 +6,7 @@ public class tvDinner : foodItem{
 
 	// Use this for initialization
 	public override void Start(){
-        base.name = "tvDinner";
+        base.itemName = "tvDinner";
         base.time = 7;
         base.space = 3;
         base.Start();

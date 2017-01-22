@@ -9,7 +9,7 @@ public class ramen : foodItem {
         base.stock = 6;
         base.time = 3;
         base.space = 1;
-        base.name = "cupNoodle";
+        base.itemName = "cupNoodle";
     }
     /*public override void endDrag()
     {
