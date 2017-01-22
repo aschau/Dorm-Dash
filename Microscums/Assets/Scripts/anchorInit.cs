@@ -66,13 +66,13 @@ public class anchorInit : MonoBehaviour {
         this.startButton.offsetMax = Vector2.zero;
         this.startButton.offsetMin = Vector2.zero;
 
-        this.items.anchorMin = new Vector2(0.65f, 0.4f);
-        this.items.anchorMax = new Vector2(0.98f, 0.95f);
+        this.items.anchorMin = new Vector2(0.7f, 0.52f);
+        this.items.anchorMax = new Vector2(0.98f, 0.96f);
         this.items.offsetMax = Vector2.zero;
         this.items.offsetMin = Vector2.zero;
 
         RectTransform itemRT = this.items.GetChild(0).GetComponent<RectTransform>();
-        itemRT.anchorMin = new Vector2(0.05f, 0.55f);
+        itemRT.anchorMin = new Vector2(0.0f, 0.55f);
         itemRT.anchorMax = new Vector2(0.45f, 0.95f);
         itemRT.offsetMax = Vector2.zero;
         itemRT.offsetMin = Vector2.zero;
