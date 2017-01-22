@@ -13,6 +13,7 @@ public abstract class foodItem : MonoBehaviour {
     public int occupied = 0;
     public float trashcanX1, trashcanX2, trashcanY1, trashcanY2;
     public GameObject control;
+    public Sprite cooked, overCooked;
 
     private float offsetX, offsetY;
     
@@ -39,7 +40,14 @@ public abstract class foodItem : MonoBehaviour {
 	
 	// Update is called once per frame
 	public virtual void Update () {
-		
+        if (this.time == 0)
+        {
+            this.GetComponent<Image>().sprite = cooked;
+        }
+        if (this.time < 0)
+        {
+            this.GetComponent<Image>().sprite = overCooked;
+        }
 	}
 
     public virtual void beginDrag()
