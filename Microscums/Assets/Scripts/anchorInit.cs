@@ -22,14 +22,29 @@ public class anchorInit : MonoBehaviour {
         this.sidebar.offsetMax = Vector2.zero;
         this.sidebar.offsetMin = Vector2.zero;
 
-        for (int i = 0; i < 5; i++)
-        {
-            RectTransform orderRT = this.sidebar.GetChild(i).GetComponent<RectTransform>();
-            orderRT.anchorMin = new Vector2(.2f, 1 - (((float)i + 1f) / 4));
-            orderRT.anchorMax = new Vector2(.8f, 1 - ((float)i / 4));
-            orderRT.offsetMin = Vector2.zero;
-            orderRT.offsetMax = Vector2.zero;
-        }
+        RectTransform orderRT = this.sidebar.GetChild(0).GetComponent<RectTransform>();
+        orderRT.anchorMin = new Vector2(.2f, 0.775f);
+        orderRT.anchorMax = new Vector2(.8f, 0.975f);
+        orderRT.offsetMin = Vector2.zero;
+        orderRT.offsetMax = Vector2.zero;
+
+        orderRT = this.sidebar.GetChild(1).GetComponent<RectTransform>();
+        orderRT.anchorMin = new Vector2(.2f, 0.525f);
+        orderRT.anchorMax = new Vector2(.8f, 0.725f);
+        orderRT.offsetMin = Vector2.zero;
+        orderRT.offsetMax = Vector2.zero;
+
+        orderRT = this.sidebar.GetChild(2).GetComponent<RectTransform>();
+        orderRT.anchorMin = new Vector2(.2f, 0.275f);
+        orderRT.anchorMax = new Vector2(.8f, 0.475f);
+        orderRT.offsetMin = Vector2.zero;
+        orderRT.offsetMax = Vector2.zero;
+
+        orderRT = this.sidebar.GetChild(3).GetComponent<RectTransform>();
+        orderRT.anchorMin = new Vector2(.2f, 0.025f);
+        orderRT.anchorMax = new Vector2(.8f, 0.225f);
+        orderRT.offsetMin = Vector2.zero;
+        orderRT.offsetMax = Vector2.zero;
 
         this.microwave.anchorMin = new Vector2(0.05f, 0.1f);
         this.microwave.anchorMax = new Vector2(0.75f, 0.8f);
