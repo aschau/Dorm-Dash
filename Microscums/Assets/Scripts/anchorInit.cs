@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class anchorInit : MonoBehaviour {
-    private RectTransform sidebar, microwave, items, pushButton, startButton, timer, closedMicrowave;
+    private RectTransform sidebar, microwave, items, pushButton, startButton, timer, closedMicrowave, pauseButton, shopButton, restockBar;
 	
     void Awake()
     {
@@ -14,6 +14,9 @@ public class anchorInit : MonoBehaviour {
         this.pushButton = GameObject.Find("Push Button").GetComponent<RectTransform>();
         this.startButton = GameObject.Find("Start Button").GetComponent<RectTransform>();
         this.timer = GameObject.Find("Timer").GetComponent<RectTransform>();
+        this.pauseButton = GameObject.Find("Pause Button").GetComponent<RectTransform>();
+        this.shopButton = GameObject.Find("Restock Button").GetComponent<RectTransform>();
+        this.restockBar = GameObject.Find("restockBar").GetComponent<RectTransform>();
     }
     
     // Use this for initialization
@@ -27,6 +30,17 @@ public class anchorInit : MonoBehaviour {
         this.closedMicrowave.anchorMax = new Vector2(1f, 1f);
         this.closedMicrowave.offsetMax = Vector2.zero;
         this.closedMicrowave.offsetMin = Vector2.zero;
+
+        this.pauseButton.anchorMin = new Vector2(0f, .8f);
+        this.pauseButton.anchorMax = new Vector2(.15f, 1f);
+        this.pauseButton.offsetMax = Vector2.zero;
+        this.pauseButton.offsetMin = Vector2.zero;
+
+        this.shopButton.anchorMin = new Vector2(.6f, .8f);
+        this.shopButton.anchorMax = new Vector2(.8f, 1f);
+        this.shopButton.offsetMax = Vector2.zero;
+        this.shopButton.offsetMin = Vector2.zero;
+
         //RectTransform orderRT = this.sidebar.GetChild(0).GetComponent<RectTransform>();
         //orderRT.anchorMin = new Vector2(.2f, 0.775f);
         //orderRT.anchorMax = new Vector2(.8f, 0.975f);
@@ -101,6 +115,39 @@ public class anchorInit : MonoBehaviour {
         itemRT.anchorMax = new Vector2(0.95f, 0.45f);
         itemRT.offsetMax = Vector2.zero;
         itemRT.offsetMin = Vector2.zero;
+
+        this.restockBar.anchorMin = new Vector2(0.7f, 0.52f);
+        this.restockBar.anchorMax = new Vector2(0.98f, 0.96f);
+        this.restockBar.offsetMax = Vector2.zero;
+        this.restockBar.offsetMin = Vector2.zero;
+
+        RectTransform restockRT = this.restockBar.GetChild(0).GetComponent<RectTransform>();
+        restockRT.anchorMin = new Vector2(0.05f, 0.55f);
+        restockRT.anchorMax = new Vector2(0.45f, 0.95f);
+        restockRT.offsetMax = Vector2.zero;
+        restockRT.offsetMin = Vector2.zero;
+
+        restockRT = this.restockBar.GetChild(1).GetComponent<RectTransform>();
+        restockRT.anchorMin = new Vector2(0.55f, 0.55f);
+        restockRT.anchorMax = new Vector2(0.95f, 0.95f);
+        restockRT.offsetMax = Vector2.zero;
+        restockRT.offsetMin = Vector2.zero;
+
+
+        restockRT = this.restockBar.GetChild(2).GetComponent<RectTransform>();
+        restockRT.anchorMin = new Vector2(0.05f, 0.05f);
+        restockRT.anchorMax = new Vector2(0.45f, 0.45f);
+        restockRT.offsetMax = Vector2.zero;
+        restockRT.offsetMin = Vector2.zero;
+
+
+        restockRT = this.restockBar.GetChild(3).GetComponent<RectTransform>();
+        restockRT.anchorMin = new Vector2(0.55f, 0.05f);
+        restockRT.anchorMax = new Vector2(0.95f, 0.45f);
+        restockRT.offsetMax = Vector2.zero;
+        restockRT.offsetMin = Vector2.zero;
+
+
 	}
 	
 	// Update is called once per frame
