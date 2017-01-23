@@ -15,11 +15,14 @@ public class buy : MonoBehaviour {
     private float tvdinner = 5f;
     private GameObject[] itemStocks;
     private GameObject restockMenu;
+    public AudioSource buying;
+    public AudioClip buy_item; 
 
 
     private int hotPocketAmount, ramenAmount, popcornAmount, tvdinnerAmount;
 	// Use this for initialization
 	void Awake () {
+        buying = GameObject.Find("buy").GetComponent<AudioSource>(); 
         playerMoney = GameObject.Find("Money Control").GetComponent<moneyControl>();
         itemStocks = GameObject.FindGameObjectsWithTag("itemStock");
         totAmount = GameObject.Find("Total Money").GetComponent<Text>();
@@ -35,6 +38,7 @@ public class buy : MonoBehaviour {
 
     public void onClick()
     {
+        buying.Play(); 
         totalAmount();
         playerMoney.total -= total;
 		totAmount.text = "$" + playerMoney.total.ToString("0.00");
