@@ -119,22 +119,23 @@ public abstract class foodItem : MonoBehaviour {
             {
                 if (cookedWell)
                 {
-                    if (this.itemName == hit.transform.GetComponent<CustomerBubbles>().food_type)
+					Debug.Log (this.itemName);
+					Debug.Log (hit.transform.GetComponent<CustomerBubbles> ().food_type);
+                    if (this.itemName == "cupNoodle" && "cupNoodle" == hit.transform.GetComponent<CustomerBubbles>().food_type)
                     {
-                        Debug.Log("CUP NOODLES");
                         moneyControl.addAmount(2f);
                     }
-                    else if (this.itemName == "hotPocket")
+					else if (this.itemName == "hotPocket" && "hotPocket" == hit.transform.GetComponent<CustomerBubbles>().food_type)
                     {
                         moneyControl.addAmount(4f);
                     }
 
-                    else if (this.itemName == "popcorn")
+					else if (this.itemName == "popcorn" && "popcorn" == hit.transform.GetComponent<CustomerBubbles>().food_type)
                     {
                         moneyControl.addAmount(2.5f);
                     }
 
-                    else if (this.itemName == "tvDinner")
+					else if (this.itemName ==  "tvDinner" && "tvDinner"== hit.transform.GetComponent<CustomerBubbles>().food_type)
                     {
                         moneyControl.addAmount(7f);
                     }

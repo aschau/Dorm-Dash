@@ -37,7 +37,7 @@ public class buy : MonoBehaviour {
     {
         totalAmount();
         playerMoney.total -= total;
-        totAmount.text = "$" + total.ToString("0.00");
+		totAmount.text = "$" + playerMoney.total.ToString("0.00");
         RestockManager.hotPocket += hotPocketAmount;
         RestockManager.ramen += ramenAmount;
         RestockManager.popcorn += popcornAmount;
