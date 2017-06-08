@@ -53,7 +53,7 @@ public class foodButton : MonoBehaviour
                     }
                     ramenButton = true;
 
-                    GameObject newObject = (GameObject)Instantiate(create, space1.transform.position, Quaternion.identity, parent.transform);
+                    GameObject newObject = (GameObject)Instantiate(create, new Vector3(space1.transform.position.x, space1.transform.position.y + 27f, space1.transform.position.z) , Quaternion.identity, parent.transform);
                     newObject.gameObject.GetComponent<foodItem>().occupied = 1;
                     control.GetComponent<microControl>().spaces -= 1;
                     control.GetComponent<microControl>().space1 = true;
@@ -70,7 +70,7 @@ public class foodButton : MonoBehaviour
                     }
                     ramenButton = true;
 
-                    GameObject newObject = (GameObject)Instantiate(create, space2.transform.position, Quaternion.identity, parent.transform);
+                    GameObject newObject = (GameObject)Instantiate(create, new Vector3(space2.transform.position.x, space2.transform.position.y + 27f, space2.transform.position.z), Quaternion.identity, parent.transform);
                     newObject.gameObject.GetComponent<foodItem>().occupied = 2;
                     control.GetComponent<microControl>().spaces -= 1;
                     control.GetComponent<microControl>().space2 = true;
@@ -87,7 +87,7 @@ public class foodButton : MonoBehaviour
                     }
                     ramenButton = true;
 
-                    GameObject newObject = (GameObject)Instantiate(create, space3.transform.position, Quaternion.identity, parent.transform);
+                    GameObject newObject = (GameObject)Instantiate(create, new Vector3(space3.transform.position.x, space3.transform.position.y + 27f, space3.transform.position.z), Quaternion.identity, parent.transform);
                     newObject.gameObject.GetComponent<foodItem>().occupied = 3;
                     control.GetComponent<microControl>().spaces -= 1;
                     control.GetComponent<microControl>().space3 = true;
@@ -109,7 +109,7 @@ public class foodButton : MonoBehaviour
                         }
                         popcornButton = true;
 
-                        GameObject newObject = (GameObject)Instantiate(create, space12.transform.position, Quaternion.identity, parent.transform);
+                        GameObject newObject = (GameObject)Instantiate(create, new Vector3(space12.transform.position.x, space12.transform.position.y - 20f, space12.transform.position.z), Quaternion.identity, parent.transform);
                         newObject.gameObject.GetComponent<foodItem>().occupied = 12;
                         control.GetComponent<microControl>().spaces -= 2;
                         control.GetComponent<microControl>().space2 = true;
@@ -127,7 +127,7 @@ public class foodButton : MonoBehaviour
                         }
                         popcornButton = true;
 
-                        GameObject newObject = (GameObject)Instantiate(create, space23.transform.position, Quaternion.identity, parent.transform);
+                        GameObject newObject = (GameObject)Instantiate(create, new Vector3(space23.transform.position.x, space23.transform.position.y - 20f, space23.transform.position.z), Quaternion.identity, parent.transform);
                         newObject.gameObject.GetComponent<foodItem>().occupied = 23;
                         control.GetComponent<microControl>().spaces -= 2;
                         control.GetComponent<microControl>().space2 = true;
@@ -148,7 +148,7 @@ public class foodButton : MonoBehaviour
                         }
                         hotPocketButton = true;
 
-                        GameObject newObject = (GameObject)Instantiate(create, space12.transform.position, Quaternion.identity, parent.transform);
+                        GameObject newObject = (GameObject)Instantiate(create, new Vector3(space12.transform.position.x, space12.transform.position.y - 45f, space12.transform.position.z), Quaternion.identity, parent.transform);
                         newObject.gameObject.GetComponent<foodItem>().occupied = 12;
                         control.GetComponent<microControl>().spaces -= 2;
                         control.GetComponent<microControl>().space2 = true;
@@ -166,7 +166,7 @@ public class foodButton : MonoBehaviour
                         }
                         hotPocketButton = true;
 
-                        GameObject newObject = (GameObject)Instantiate(create, space23.transform.position, Quaternion.identity, parent.transform);
+                        GameObject newObject = (GameObject)Instantiate(create, new Vector3(space23.transform.position.x, space23.transform.position.y - 45f, space23.transform.position.z), Quaternion.identity, parent.transform);
                         newObject.gameObject.GetComponent<foodItem>().occupied = 23;
                         control.GetComponent<microControl>().spaces -= 2;
                         control.GetComponent<microControl>().space2 = true;

@@ -5,15 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class pause : MonoBehaviour {
 	private timer timerObject;
+    private GameObject instructionImage;
 
 	void Awake()
 	{
 		timerObject = GameObject.Find ("Timer").GetComponent<timer>();
+        instructionImage = GameObject.Find("Instructions");
 	}
 
 	// Use this for initialization
 	void Start () {
 		this.gameObject.SetActive (false);
+        this.instructionImage.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -30,6 +33,11 @@ public class pause : MonoBehaviour {
 			timerObject.paused = false;
 		}
 	}
+
+    public void instructions()
+    {
+        this.instructionImage.gameObject.SetActive(!this.instructionImage.gameObject.activeSelf);
+    }
 
 	public void exit(){
 		SceneManager.LoadScene ("mainMenu");

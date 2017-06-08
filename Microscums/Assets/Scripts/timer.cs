@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class timer : MonoBehaviour {
-	public float maxTime = 240f; //Max Time for Game
+	public float maxTime = 60f; //Max Time for Game
 	public float _currentTime; //Current Time
 	private string textTime; //Getting the time
 	public Text textTimer; //The string time
