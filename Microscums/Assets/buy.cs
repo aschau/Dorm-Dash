@@ -48,10 +48,10 @@ public class buy : MonoBehaviour {
         RestockManager.tvDinner += tvdinnerAmount;
         restock();
 
-        GameObject.Find("Hot Pocket").transform.FindChild("Amount").GetComponent<Text>().text = "0";
-        GameObject.Find("Ramen").transform.FindChild("Amount").GetComponent<Text>().text = "0";
-        GameObject.Find("Popcorn").transform.FindChild("Amount").GetComponent<Text>().text = "0";
-        GameObject.Find("TV Dinner").transform.FindChild("Amount").GetComponent<Text>().text = "0";
+        GameObject.Find("Hot Pocket").transform.Find("Amount").GetComponent<Text>().text = "0";
+        GameObject.Find("Ramen").transform.Find("Amount").GetComponent<Text>().text = "0";
+        GameObject.Find("Popcorn").transform.Find("Amount").GetComponent<Text>().text = "0";
+        GameObject.Find("TV Dinner").transform.Find("Amount").GetComponent<Text>().text = "0";
 
         tempTotAmount.text = "$0";
 
@@ -61,22 +61,22 @@ public class buy : MonoBehaviour {
     public void totalAmount()
     {
         total = 0;
-        hotPocketAmount = int.Parse(GameObject.Find("Hot Pocket").transform.FindChild("Amount").GetComponent<Text>().text);
+        hotPocketAmount = int.Parse(GameObject.Find("Hot Pocket").transform.Find("Amount").GetComponent<Text>().text);
         if (hotPocketAmount > 0)
         {
             total += hotPocket * hotPocketAmount;
         }
-        ramenAmount = int.Parse(GameObject.Find("Ramen").transform.FindChild("Amount").GetComponent<Text>().text);
+        ramenAmount = int.Parse(GameObject.Find("Ramen").transform.Find("Amount").GetComponent<Text>().text);
         if (ramenAmount > 0)
         {
             total += ramen * ramenAmount;
         }
-        popcornAmount = int.Parse(GameObject.Find("Popcorn").transform.FindChild("Amount").GetComponent<Text>().text);
+        popcornAmount = int.Parse(GameObject.Find("Popcorn").transform.Find("Amount").GetComponent<Text>().text);
         if (popcornAmount > 0)
         {
             total += popcorn * popcornAmount;
         }
-        tvdinnerAmount = int.Parse(GameObject.Find("TV Dinner").transform.FindChild("Amount").GetComponent<Text>().text);
+        tvdinnerAmount = int.Parse(GameObject.Find("TV Dinner").transform.Find("Amount").GetComponent<Text>().text);
         if (tvdinnerAmount > 0)
         {
             total += tvdinner * tvdinnerAmount;
@@ -89,20 +89,20 @@ public class buy : MonoBehaviour {
         {
             if (item.name == "Ramen")
             {
-                item.transform.FindChild("Stock").GetComponent<Text>().text = RestockManager.ramen.ToString();
+                item.transform.Find("Stock").GetComponent<Text>().text = RestockManager.ramen.ToString();
             }
 
             else if (item.name == "Popcorn")
             {
-                item.transform.FindChild("Stock").GetComponent<Text>().text = RestockManager.popcorn.ToString();
+                item.transform.Find("Stock").GetComponent<Text>().text = RestockManager.popcorn.ToString();
             }
             else if (item.name == "Hot Pocket")
             {
-                item.transform.FindChild("Stock").GetComponent<Text>().text = RestockManager.hotPocket.ToString();
+                item.transform.Find("Stock").GetComponent<Text>().text = RestockManager.hotPocket.ToString();
             }
             else if (item.name == "TV Dinner")
             {
-                item.transform.FindChild("Stock").GetComponent<Text>().text = RestockManager.tvDinner.ToString();
+                item.transform.Find("Stock").GetComponent<Text>().text = RestockManager.tvDinner.ToString();
             }
         }
     }

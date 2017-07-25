@@ -17,7 +17,7 @@ public class restocking : MonoBehaviour {
 	// Use this for initialization
 	void Awake()
 	{
-		amount = this.transform.FindChild("Amount").GetComponent<Text>();
+		amount = this.transform.Find("Amount").GetComponent<Text>();
 		totAmount = GameObject.Find ("Total Amount").GetComponent<Text> ();
         mc = GameObject.Find("Money Control").GetComponent<moneyControl>();
 	}
@@ -115,19 +115,19 @@ public class restocking : MonoBehaviour {
 	public void totalAmount()
 	{
 		total = 0;
-		int hotPocketAmount = int.Parse(GameObject.Find ("Hot Pocket").transform.FindChild("Amount").GetComponent<Text> ().text);
+		int hotPocketAmount = int.Parse(GameObject.Find ("Hot Pocket").transform.Find("Amount").GetComponent<Text> ().text);
 		if (hotPocketAmount > 0){
 			total += hotPocket * hotPocketAmount; 
 		}
-		int ramenAmount = int.Parse(GameObject.Find ("Ramen").transform.FindChild("Amount").GetComponent<Text> ().text);
+		int ramenAmount = int.Parse(GameObject.Find ("Ramen").transform.Find("Amount").GetComponent<Text> ().text);
 		if (ramenAmount > 0){
 			total += ramen * ramenAmount; 
 		}
-		int popcornAmount = int.Parse(GameObject.Find ("Popcorn").transform.FindChild("Amount").GetComponent<Text> ().text);
+		int popcornAmount = int.Parse(GameObject.Find ("Popcorn").transform.Find("Amount").GetComponent<Text> ().text);
 		if (popcornAmount > 0){
 			total += popcorn * popcornAmount; 
 		}
-		int tvdinnerAmount = int.Parse(GameObject.Find ("TV Dinner").transform.FindChild("Amount").GetComponent<Text> ().text);
+		int tvdinnerAmount = int.Parse(GameObject.Find ("TV Dinner").transform.Find("Amount").GetComponent<Text> ().text);
 		if (tvdinnerAmount > 0){
 			total += tvdinner * tvdinnerAmount; 
 		}

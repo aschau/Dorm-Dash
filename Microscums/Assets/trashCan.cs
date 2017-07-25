@@ -7,7 +7,7 @@ public class trashCan : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         this.origin = this.transform.position;
-        this.newPos = this.transform.FindChild("newPos").transform.position;
+        this.newPos = this.transform.Find("newPos").transform.position;
 	}
 	
 	// Update is called once per frame

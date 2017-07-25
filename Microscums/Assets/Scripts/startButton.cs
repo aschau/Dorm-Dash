@@ -5,18 +5,20 @@ using UnityEngine;
 public class startButton : MonoBehaviour {
     GameObject closed, opened, control, food;
     GameObject[] foodItems;
+    private bool isOpened = false;
 
     void Awake()
     {
         closed = GameObject.Find("closedMicrowave");
-        //opened = GameObject.Find("openMicrowave");
+        opened = GameObject.Find("openedMicrowave");
         control = GameObject.Find("microwaveControl");
         food = GameObject.Find("Items");
+        
     }
 	// Use this for initialization
 	void Start () {
-		
-	}
+        opened.SetActive(false);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -25,25 +27,20 @@ public class startButton : MonoBehaviour {
 
     public void onClick()
     {
-        if (this.name == "Start Button")
+        if (isOpened)
         {
             closed.SetActive(true);
-            //opened.SetActive(false);
+            opened.SetActive(false);
             control.GetComponent<microControl>().door = true;
+            isOpened = false;
         }
         else
         {
-
+            isOpened = true;
             closed.SetActive(false);
-            //opened.SetActive(true);
+            opened.SetActive(true);
             control.GetComponent<microControl>().door = false;
-            if (food.transform.childCount > 0)
-            {
-                foreach (Transform foodChild in food.transform)
-                {
-                    foodChild.GetComponent<foodItem>().time -= control.GetComponent<microControl>().swipes;
-                }
-            }
+            
             control.GetComponent<microControl>().swipes = 0;
         }
     }

@@ -48,7 +48,7 @@ public class foodButton : MonoBehaviour
                         if (item.name == "Ramen")
                         {
                             Debug.Log("RAMEN DECREASE CHANGE");
-                            item.transform.FindChild("Stock").GetComponent<Text>().text = RestockManager.ramen.ToString();
+                            item.transform.Find("Stock").GetComponent<Text>().text = RestockManager.ramen.ToString();
                         }
                     }
                     ramenButton = true;
@@ -65,7 +65,7 @@ public class foodButton : MonoBehaviour
                     {
                         if (item.name == "Ramen")
                         {
-                            item.transform.FindChild("Stock").GetComponent<Text>().text = RestockManager.ramen.ToString();
+                            item.transform.Find("Stock").GetComponent<Text>().text = RestockManager.ramen.ToString();
                         }
                     }
                     ramenButton = true;
@@ -82,7 +82,7 @@ public class foodButton : MonoBehaviour
                     {
                         if (item.name == "Ramen")
                         {
-                            item.transform.FindChild("Stock").GetComponent<Text>().text = RestockManager.ramen.ToString();
+                            item.transform.Find("Stock").GetComponent<Text>().text = RestockManager.ramen.ToString();
                         }
                     }
                     ramenButton = true;
@@ -104,7 +104,7 @@ public class foodButton : MonoBehaviour
                         {
                             if (item.name == "Popcorn")
                             {
-                                item.transform.FindChild("Stock").GetComponent<Text>().text = RestockManager.popcorn.ToString();
+                                item.transform.Find("Stock").GetComponent<Text>().text = RestockManager.popcorn.ToString();
                             }
                         }
                         popcornButton = true;
@@ -122,7 +122,7 @@ public class foodButton : MonoBehaviour
                         {
                             if (item.name == "Popcorn")
                             {
-                                item.transform.FindChild("Stock").GetComponent<Text>().text = RestockManager.popcorn.ToString();
+                                item.transform.Find("Stock").GetComponent<Text>().text = RestockManager.popcorn.ToString();
                             }
                         }
                         popcornButton = true;
@@ -143,7 +143,7 @@ public class foodButton : MonoBehaviour
                         {
                             if (item.name == "Hot Pocket")
                             {
-                                item.transform.FindChild("Stock").GetComponent<Text>().text = RestockManager.hotPocket.ToString();
+                                item.transform.Find("Stock").GetComponent<Text>().text = RestockManager.hotPocket.ToString();
                             }
                         }
                         hotPocketButton = true;
@@ -161,7 +161,7 @@ public class foodButton : MonoBehaviour
                         {
                             if (item.name == "Hot Pocket")
                             {
-                                item.transform.FindChild("Stock").GetComponent<Text>().text = RestockManager.hotPocket.ToString();
+                                item.transform.Find("Stock").GetComponent<Text>().text = RestockManager.hotPocket.ToString();
                             }
                         }
                         hotPocketButton = true;
@@ -184,7 +184,7 @@ public class foodButton : MonoBehaviour
                     {
                         if (item.name == "TV Dinner")
                         {
-                            item.transform.FindChild("Stock").GetComponent<Text>().text = RestockManager.tvDinner.ToString();
+                            item.transform.Find("Stock").GetComponent<Text>().text = RestockManager.tvDinner.ToString();
                         }
                     }
                     tvDinnerButton = true;
