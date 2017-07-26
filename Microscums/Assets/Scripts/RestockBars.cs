@@ -31,6 +31,7 @@ public class RestockBars : MonoBehaviour {
         {
             
             print("decreased hotpocket");
+            
             this.transform.GetComponent<RectTransform>().offsetMax = new Vector2(
                 this.transform.GetComponent<RectTransform>().offsetMax.x, 
                 this.transform.GetComponent<RectTransform>().offsetMax.y + 158/hotPocket_max);

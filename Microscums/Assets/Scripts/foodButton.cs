@@ -37,7 +37,7 @@ public class foodButton : MonoBehaviour
     {
         if (control.GetComponent<microControl>().door == false)
         {
-            if (this.name == "cupNoodlesButton" && RestockManager.ramen>0)
+            if (this.name.Contains("ramen") && RestockManager.ramen>0)
             {
 
                 if (control.GetComponent<microControl>().space1 == false)
@@ -93,7 +93,7 @@ public class foodButton : MonoBehaviour
                     control.GetComponent<microControl>().space3 = true;
                 }
             }
-            else if (this.name == "popcornButton" || this.name == "hotPocketButton")
+            else if (this.name.Contains("popcorn") || this.name.Contains("hotPocket"))
             {
                 if (this.name == "popcornButton" && RestockManager.popcorn>0)
                 {
@@ -174,7 +174,7 @@ public class foodButton : MonoBehaviour
                     }
                 }
             }
-            else if (this.name == "tvDinnerButton" && RestockManager.tvDinner>0)
+            else if (this.name.Contains("tvDinner") && RestockManager.tvDinner>0)
             {
 
                 if (control.GetComponent<microControl>().spaces == 3)
