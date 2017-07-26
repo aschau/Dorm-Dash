@@ -17,7 +17,7 @@ public abstract class foodItem : MonoBehaviour {
     public bool cookedWell = false;
     private float offsetX, offsetY;
     
-    public Vector3 origin;
+    public Vector3 origin, offset;
     private GameObject trashcan, mainCamera, control;
     private moneyControl moneyControl;
 
@@ -28,10 +28,7 @@ public abstract class foodItem : MonoBehaviour {
         this.mainCamera = GameObject.Find("Main Camera");
         this.control = GameObject.Find("microwaveControl");
         this.moneyControl = GameObject.Find("Money Control").GetComponent<moneyControl>();
-        //this.trashcanX1 = this.trashcan.transform.position.x - (this.trashcan.GetComponent<RectTransform>().rect.width / 2);
-        //this.trashcanX2 = this.trashcan.transform.position.x + (this.trashcan.GetComponent<RectTransform>().rect.width / 2);
-        //this.trashcanY1 = this.trashcan.transform.position.y - (this.trashcan.GetComponent<RectTransform>().rect.height / 2);
-        //this.trashcanY2 = this.trashcan.transform.position.y + (this.trashcan.GetComponent<RectTransform>().rect.height / 2);
+        
         this.origin = this.transform.position;
     }
 
@@ -58,15 +55,16 @@ public abstract class foodItem : MonoBehaviour {
 
     public virtual void beginDrag()
     {
-        offsetX = this.transform.position.x - Input.mousePosition.x;
-        offsetY = this.transform.position.y - Input.mousePosition.y;
+        offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
+        //offsetX = this.transform.position.x - Input.mousePosition.x;
+        //offsetY = this.transform.position.y - Input.mousePosition.y;
         this.beingDragged = true;
         this.trashcan.GetComponent<trashCan>().upTrashCan();
     }
 
     public virtual void onDrag()
     {
-        this.transform.position = new Vector3(Input.mousePosition.x + offsetX, Input.mousePosition.y + offsetY);
+        this.transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x + offset.x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y + offset.y);
     }
     public virtual RaycastHit2D checkHit(GameObject camera)
     {
@@ -77,6 +75,7 @@ public abstract class foodItem : MonoBehaviour {
         this.beingDragged = false;
         RaycastHit2D hit = checkHit(this.mainCamera);
         this.trashcan.GetComponent<trashCan>().downTrashCan();
+        Debug.Log(hit);
 
         if (hit)
         {
@@ -117,6 +116,7 @@ public abstract class foodItem : MonoBehaviour {
 
             if (hit.transform.CompareTag("customerBubble"))
             {
+                Debug.Log("Hit the bubble");
                 if (cookedWell)
                 {
 					Debug.Log (this.itemName);
